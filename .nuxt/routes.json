@@ -1,0 +1,51 @@
+[
+  {
+    "name": "auth",
+    "path": "/auth",
+    "component": "/home/abelha/TCCRaquel/if-connection/src/pages/auth/index.vue",
+    "chunkName": "pages/auth/index",
+    "_name": "_c41c57dc"
+  },
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "/home/abelha/TCCRaquel/if-connection/src/pages/dashboard.vue",
+    "chunkName": "pages/dashboard",
+    "_name": "_1b8f4bfd"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/home/abelha/TCCRaquel/if-connection/src/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_4288eed2"
+  },
+  {
+    "name": "singup",
+    "path": "/singup",
+    "component": "/home/abelha/TCCRaquel/if-connection/src/pages/singup.vue",
+    "chunkName": "pages/singup",
+    "_name": "_8069185e"
+  },
+  {
+    "name": "users",
+    "path": "/users",
+    "component": "/home/abelha/TCCRaquel/if-connection/src/pages/users.vue",
+    "chunkName": "pages/users",
+    "_name": "_8369b41e"
+  },
+  {
+    "name": "auth-reset_password",
+    "path": "/auth/reset_password",
+    "component": "/home/abelha/TCCRaquel/if-connection/src/pages/auth/reset_password.vue",
+    "chunkName": "pages/auth/reset_password",
+    "_name": "_12b1f7fb"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/abelha/TCCRaquel/if-connection/src/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_78e14bbb"
+  }
+]

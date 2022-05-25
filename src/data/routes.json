@@ -1,0 +1,14 @@
+[
+  {
+    "to": "/dashboard/",
+    "title": "Dashboard",
+    "icon": "mdi-view-dashboard",
+    "role": "Viewer"
+  },
+  {
+    "to": "/users/",
+    "title": "Usuários",
+    "icon": "mdi-account-box-multiple",
+    "role": "Admin"
+  }
+]

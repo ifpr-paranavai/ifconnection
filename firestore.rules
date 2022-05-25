@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isUserRegistered() {
+      return isSignedIn() 
+      && get(/databases/$(database)/documents/users/$(request.auth.token.email)) != null;
+    }
+
+    function checkRole(role) {
+      return (get(/databases/$(database)/documents/users/$(request.auth.token.email))
+      .data['role'] == role)
+    }
+
+    function isEditor() {
+      return checkRole('Admin') || checkRole('Editor')
+    }
+    
+    function isAdmin() {
+      return checkRole('Admin')
+    }
+
+    function isSameDomain(domain) {
+      // Admin can access all domains include unactives
+      return isAdmin() || (get(/databases/$(database)/documents/users/$(request.auth.token.email))
+      .data['domain'] == domain)
+    }
+    
+    match /users/{user} {
+      allow read: if user == request.auth.token.email;
+      // Only Admins can create and edit users
+    	allow read, write: if isAdmin()
+    }
+    
+    match /domains/{domain} {
+      // Any user can read info from your own domain
+      allow read: if isSameDomain(domain);
+      // Editor can read and write info in your own domain
+      allow write: if isSameDomain(domain) && isEditor();
+      // Admins can read and write any domains
+    	allow read, write: if isAdmin();
+    }
+    
+    match /persons/{personId} {
+    	allow read, write: if isEditor()
+    }
+    
+     match /labels/{labelId} {
+    	allow read, write: if isEditor()
+    }
+    
+    match /contents/{contentId} {
+    	allow read, write: if isEditor()
+    }
+    
+    match /domains/{domain}/medias/{mediaId} {
+    	allow read, write: if isEditor() && isSameDomain(domain)
+    }
+    
+    match /domains/{domain}/playlists/{playlistId} {
+    	allow read, write: if isEditor() && isSameDomain(domain)
+    }
+  }
+}
