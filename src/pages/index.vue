@@ -157,7 +157,5 @@ p {
   border: .2rem solid #1C5C27;
   border-bottom-left-radius: 150%;
   border-top-right-radius: 150%;
-
-  
 }
 </style>
